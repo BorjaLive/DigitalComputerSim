@@ -7,8 +7,8 @@ import javafx.util.Pair;
 public abstract class Componente implements Componentable {
 
     private final long id;
-    protected final Map<String, Entrada> entradas;
-    protected final Map<String, Boolean> salidas;
+    private final Map<String, Entrada> entradas;
+    private final Map<String, Boolean> salidas;
     private final String[] nombreEntradas;
     private final String[] nombreSalidas;
 
@@ -55,7 +55,7 @@ public abstract class Componente implements Componentable {
         boolean definido = true;
         int i = 0;
         while (i < nombreEntradas.length && definido) {
-            if (entradas.get(nombreEntradas[i]) == null || entradas.get(nombreEntradas[i]).leer() == null) {
+            if (entradas.get(nombreEntradas[i]) != null && entradas.get(nombreEntradas[i]).leer() == null) {
                 definido = false;
             } else {
                 i++;
@@ -66,6 +66,14 @@ public abstract class Componente implements Componentable {
             generarSalidas();
         }
         return definido;
+    }
+    
+    protected boolean leer(String nombre){
+        Entrada entrada = entradas.get(nombre);
+        return entrada != null && entrada.leer();
+    }
+    protected void escribir(String nombre, boolean estado){
+        salidas.put(nombre, estado);
     }
 
     protected abstract void generarSalidas();

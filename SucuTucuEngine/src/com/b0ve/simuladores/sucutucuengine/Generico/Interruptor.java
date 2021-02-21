@@ -18,7 +18,7 @@ public class Interruptor extends Componente{
 
     @Override
     protected void generarSalidas() {
-        salidas.put("y1", estado);
+        escribir("y1", estado);
     }
     
 }

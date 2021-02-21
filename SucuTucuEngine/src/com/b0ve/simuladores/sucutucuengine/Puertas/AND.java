@@ -11,7 +11,7 @@ public class AND extends Componente{
 
     @Override
     protected void generarSalidas() {
-        salidas.put("y1", entradas.get("x1").leer() && entradas.get("x2").leer());
+        escribir("y1", leer("x1") && leer(("x2")));
     }
     
 }

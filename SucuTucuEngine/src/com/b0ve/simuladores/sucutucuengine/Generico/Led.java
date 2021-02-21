@@ -10,8 +10,7 @@ public class Led extends Componente{
     }
     
     public Boolean getEstado(){
-        Boolean estado =  entradas.get("x1").leer();
-        return estado != null && estado;
+        return leer("x1");
     }
 
     @Override
