@@ -17,7 +17,7 @@ public class Playground {
     }
     
     public void agregarConexion(Componentable componenteOrigen, String nombreOrigen, Componentable componenteDestino, String nombreDestino){
-        componenteDestino.setEntrada(new Entrada(componenteOrigen, nombreOrigen), nombreDestino);
+        componenteDestino.setEntrada(new Pin(componenteOrigen, nombreOrigen), nombreDestino);
     }
     
     public void eliminarConexion(Componentable componenteDestino, String nombreDestino){
@@ -25,8 +25,11 @@ public class Playground {
     }
     
     public void simular(){
+        for (Componentable componente : componentes) {
+            componente.limpiar();
+        }
         boolean[] calculado = new boolean[componentes.size()];
-       boolean cambio;
+        boolean cambio;
         do{
             cambio = false;
             for (int i = 0; i < componentes.size(); i++) {
@@ -37,4 +40,6 @@ public class Playground {
             }
         }while(cambio);
     }
+    
+    
 }

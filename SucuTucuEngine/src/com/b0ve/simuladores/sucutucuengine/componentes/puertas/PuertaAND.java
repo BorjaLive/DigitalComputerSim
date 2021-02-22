@@ -1,11 +1,11 @@
-package com.b0ve.simuladores.sucutucuengine.Puertas;
+package com.b0ve.simuladores.sucutucuengine.componentes.puertas;
 
 import com.b0ve.simuladores.sucutucuengine.Componente;
 
 
-public class AND extends Componente{
+public class PuertaAND extends Componente{
 
-    public AND(long id){
+    public PuertaAND(long id){
         super(id, new String[]{"x1", "x2"}, new String[]{"y1"});
     }
 

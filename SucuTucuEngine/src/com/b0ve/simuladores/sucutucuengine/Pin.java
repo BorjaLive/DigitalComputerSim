@@ -2,12 +2,12 @@ package com.b0ve.simuladores.sucutucuengine;
 
 import java.util.Objects;
 
-public final class Entrada {
+public final class Pin {
 
     private final Componentable componente;
     private final String nombre;
 
-    public Entrada(Componentable componente, String nombre) {
+    public Pin(Componentable componente, String nombre) {
         this.componente = componente;
         this.nombre = nombre;
     }
@@ -26,8 +26,8 @@ public final class Entrada {
 
     @Override
     public boolean equals(Object o) {
-        if (o.getClass() == Entrada.class) {
-            Entrada obj = (Entrada)o;
+        if (o.getClass() == Pin.class) {
+            Pin obj = (Pin)o;
             return componente.equals(obj.componente) && nombre.equals(obj.nombre);
         } else {
             return false;

@@ -1,5 +1,6 @@
-package com.b0ve.simuladores.sucutucuengine.Generico;
+package com.b0ve.simuladores.sucutucuengine.componentes.utilidades;
 
+import com.b0ve.simuladores.sucutucuengine.Componente;
 import com.b0ve.simuladores.sucutucuengine.Componente;
 
 

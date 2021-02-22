@@ -2,15 +2,14 @@ package com.b0ve.simuladores.sucutucuengine;
 
 import java.util.HashMap;
 import java.util.Map;
-import javafx.util.Pair;
 
 public abstract class Componente implements Componentable {
 
     private final long id;
-    private final Map<String, Entrada> entradas;
+    private final Map<String, Pin> entradas;
     private final Map<String, Boolean> salidas;
-    private final String[] nombreEntradas;
-    private final String[] nombreSalidas;
+    protected final String[] nombreEntradas;
+    protected final String[] nombreSalidas;
 
     public Componente(long id, String[] nombreEntradas, String[] nombreSalidas) {
         this.id = id;
@@ -26,7 +25,7 @@ public abstract class Componente implements Componentable {
     }
 
     @Override
-    public Entrada getEntrada(String entrada) {
+    public Pin getEntrada(String entrada) {
         return entradas.get(entrada);
     }
 
@@ -36,7 +35,7 @@ public abstract class Componente implements Componentable {
     }
 
     @Override
-    public void setEntrada(Entrada entrada, String nombre) {
+    public void setEntrada(Pin entrada, String nombre) {
         entradas.put(nombre, entrada);
     }
 
@@ -69,7 +68,7 @@ public abstract class Componente implements Componentable {
     }
     
     protected boolean leer(String nombre){
-        Entrada entrada = entradas.get(nombre);
+        Pin entrada = entradas.get(nombre);
         return entrada != null && entrada.leer();
     }
     protected void escribir(String nombre, boolean estado){
