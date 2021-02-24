@@ -38,6 +38,10 @@ public class ComponenteFactory {
             case AND: return new PuertaAND(id);
             case OR: return new PuertaOR(id);
             case NOT: return new PuertaNOT(id);
+            case NAND: return new PuertaNAND(id);
+            case NOR: return new PuertaNOR(id);
+            case XOR: return new PuertaXOR(id);
+            case XNOR: return new PuertaXNOR(id);
             case INTERRUPTOR: return new Interruptor(id);
             case LED: return new Led(id);
             case BCD_7SEGMENTOS: return new BCD7Segmentos(id);
