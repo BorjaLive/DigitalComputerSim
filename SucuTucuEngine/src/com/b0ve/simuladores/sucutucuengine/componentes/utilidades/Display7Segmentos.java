@@ -5,6 +5,10 @@ import com.b0ve.simuladores.sucutucuengine.Componente;
 
 public class Display7Segmentos extends Componente {
 
+    // Estados en los que puede estar el 7 Segmentos.
+    // Los booleanos del array representan, por orden, los
+    // segmentos: arriba superior, izquierda superior, derecha superior,
+    // central, izquierda inferior, derecha inferior, abajo inferior.
     private boolean estado[];
     
     public Display7Segmentos(long id) {
