@@ -21,6 +21,29 @@ public class Display7Segmentos extends Componente {
         return estado;
     }
     
+    public String mostrar() {
+        StringBuilder sb = new StringBuilder();
+        
+        if (estado[0]) sb.append(" ---");
+        sb.append("\n");
+        if (estado[1]) sb.append("|");
+        else sb.append(" ");
+        sb.append("   ");
+        if (estado[2]) sb.append("|");
+        sb.append("\n");
+        if (estado[3]) sb.append(" ---");
+        sb.append("\n");
+        if (estado[4]) sb.append("|");
+        else sb.append(" ");
+        sb.append("   ");
+        if (estado[5]) sb.append("|");
+        sb.append("\n");
+        if (estado[6]) sb.append(" ---");
+        sb.append("\n");
+        
+        return sb.toString();
+    }
+    
     @Override
     protected void generarSalidas() {
         for (int i = 0; i < 7; i++)

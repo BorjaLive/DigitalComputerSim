@@ -22,7 +22,7 @@ public abstract class DisplayHexadecimal extends Componente {
             input += x;
         }
         int n = Integer.parseInt(input, 2);
-        numero = Integer.toString(n, 16);
+        numero = Integer.toString(n, 16).toUpperCase();
     }
     
 }

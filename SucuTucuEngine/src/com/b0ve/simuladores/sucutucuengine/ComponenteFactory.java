@@ -18,7 +18,18 @@ public class ComponenteFactory {
         NOR,
         XNOR,
         INTERRUPTOR,
-        LED
+        LED,
+        BCD_7SEGMENTOS,
+        DISPLAY_7SEGMENTOS,
+        DISPLAY_BINARIO_X4,
+        DISPLAY_BINARIO_X8,
+        DISPLAY_BINARIO_X16,
+        DISPLAY_HEXADECIMAL_X4,
+        DISPLAY_HEXADECIMAL_X8,
+        DISPLAY_HEXADECIMAL_X16,
+        DISPLAY_DECIMAL_X4,
+        DISPLAY_DECIMAL_X8,
+        DISPLAY_DECIMAL_X16
     }
     
     public static Componentable crearComponente(Componentes c){
@@ -29,6 +40,17 @@ public class ComponenteFactory {
             case NOT: return new PuertaNOT(id);
             case INTERRUPTOR: return new Interruptor(id);
             case LED: return new Led(id);
+            case BCD_7SEGMENTOS: return new BCD7Segmentos(id);
+            case DISPLAY_7SEGMENTOS: return new Display7Segmentos(id);
+            case DISPLAY_BINARIO_X4: return new DisplayBinariox4(id);
+            case DISPLAY_BINARIO_X8: return new DisplayBinariox8(id);
+            case DISPLAY_BINARIO_X16: return new DisplayBinariox16(id);
+            case DISPLAY_HEXADECIMAL_X4: return new DisplayHexadecimalx4(id);
+            case DISPLAY_HEXADECIMAL_X8: return new DisplayHexadecimalx8(id);
+            case DISPLAY_HEXADECIMAL_X16: return new DisplayHexadecimalx16(id);
+            case DISPLAY_DECIMAL_X4: return new DisplayDecimalx4(id);
+            case DISPLAY_DECIMAL_X8: return new DisplayDecimalx8(id);
+            case DISPLAY_DECIMAL_X16: return new DisplayDecimalx16(id);
             default: return null;
         }
     }

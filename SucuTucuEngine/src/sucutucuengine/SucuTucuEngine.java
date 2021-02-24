@@ -6,13 +6,19 @@ import com.b0ve.simuladores.sucutucuengine.Pin;
 import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.Interruptor;
 import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.Led;
 import com.b0ve.simuladores.sucutucuengine.Playground;
+import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.BCD7Segmentos;
+import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.Display7Segmentos;
+import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.DisplayBinariox4;
+import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.DisplayDecimalx4;
+import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.DisplayHexadecimalx4;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SucuTucuEngine {
 
     public static void main(String[] args) {
-        test4();
+        test5();
     }
     
     private static void test1(){
@@ -217,5 +223,76 @@ public class SucuTucuEngine {
         btn2.setEstado(true);
         maqueta.simular();
         System.out.println(led1.getEstado());
+    }
+    
+    private static void test5() {
+        Playground maqueta = new Playground();
+        
+        Interruptor btn1 = (Interruptor) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.INTERRUPTOR);
+        Interruptor btn2 = (Interruptor) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.INTERRUPTOR);
+        Interruptor btn3 = (Interruptor) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.INTERRUPTOR);
+        Interruptor btn4 = (Interruptor) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.INTERRUPTOR);
+        
+        BCD7Segmentos bcd = (BCD7Segmentos) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.BCD_7SEGMENTOS);
+        Display7Segmentos d7s = (Display7Segmentos) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.DISPLAY_7SEGMENTOS);
+        
+        DisplayBinariox4 db = (DisplayBinariox4) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.DISPLAY_BINARIO_X4);
+        DisplayHexadecimalx4 dh = (DisplayHexadecimalx4) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.DISPLAY_HEXADECIMAL_X4);
+        DisplayDecimalx4 dd = (DisplayDecimalx4) ComponenteFactory.crearComponente(ComponenteFactory.Componentes.DISPLAY_DECIMAL_X4);
+        
+        maqueta.agregarComponente(btn1);
+        maqueta.agregarComponente(btn2);
+        maqueta.agregarComponente(btn3);
+        maqueta.agregarComponente(btn4);
+        maqueta.agregarComponente(bcd);
+        maqueta.agregarComponente(d7s);
+        maqueta.agregarComponente(db);
+        maqueta.agregarComponente(dh);
+        maqueta.agregarComponente(dd);
+        
+        maqueta.agregarConexion(btn1, "y1", bcd, "x1");
+        maqueta.agregarConexion(btn2, "y1", bcd, "x2");
+        maqueta.agregarConexion(btn3, "y1", bcd, "x3");
+        maqueta.agregarConexion(btn4, "y1", bcd, "x4");
+        
+        maqueta.agregarConexion(bcd, "y1", d7s, "x1");
+        maqueta.agregarConexion(bcd, "y2", d7s, "x2");
+        maqueta.agregarConexion(bcd, "y3", d7s, "x3");
+        maqueta.agregarConexion(bcd, "y4", d7s, "x4");
+        maqueta.agregarConexion(bcd, "y5", d7s, "x5");
+        maqueta.agregarConexion(bcd, "y6", d7s, "x6");
+        maqueta.agregarConexion(bcd, "y7", d7s, "x7");
+        
+        maqueta.agregarConexion(btn1, "y1", db, "x1");
+        maqueta.agregarConexion(btn2, "y1", db, "x2");
+        maqueta.agregarConexion(btn3, "y1", db, "x3");
+        maqueta.agregarConexion(btn4, "y1", db, "x4");
+        
+        maqueta.agregarConexion(btn1, "y1", dh, "x1");
+        maqueta.agregarConexion(btn2, "y1", dh, "x2");
+        maqueta.agregarConexion(btn3, "y1", dh, "x3");
+        maqueta.agregarConexion(btn4, "y1", dh, "x4");
+        
+        maqueta.agregarConexion(btn1, "y1", dd, "x1");
+        maqueta.agregarConexion(btn2, "y1", dd, "x2");
+        maqueta.agregarConexion(btn3, "y1", dd, "x3");
+        maqueta.agregarConexion(btn4, "y1", dd, "x4");        
+        
+        btn1.setEstado(true);
+        btn2.setEstado(true);
+        btn3.setEstado(false);
+        btn4.setEstado(false);
+        
+        maqueta.simular();
+        System.out.println("DISPLAY 7 SEGMENTOS:");
+        System.out.println(Arrays.toString(d7s.getEstado()));
+        System.out.print(d7s.mostrar());
+        System.out.println("-----------------------------------------------------");
+        System.out.println("DISPLAY BINARIO: " + db.getNumero());
+        System.out.println("-----------------------------------------------------");
+        System.out.println("DISPLAY HEXADECIMAL: " + dh.getNumero());
+        System.out.println("-----------------------------------------------------");
+        System.out.println("DISPLAY DECIMAL: " + dd.getNumero());
+        System.out.println("-----------------------------------------------------");
     }
 }
