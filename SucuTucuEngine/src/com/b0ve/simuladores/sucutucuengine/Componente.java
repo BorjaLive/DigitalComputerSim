@@ -58,8 +58,8 @@ public abstract class Componente implements Componentable {
     }
 
     @Override
-    public void setEntrada(Pin entrada, String nombre) {
-        entradas.put(nombre, entrada);
+    public void setEntrada(Pin salida, String nombreEntrada) {
+        entradas.put(nombreEntrada, salida);
     }
 
     @Override
@@ -90,15 +90,28 @@ public abstract class Componente implements Componentable {
         return definido;
     }
 
+    /**
+     * Lee el pin de salida que está conectado a una entrada del componente
+     * @param nombre Nombre de la entrada
+     * @return El valor al que está la entrada
+     */
     protected boolean leer(String nombre) {
         Pin entrada = entradas.get(nombre);
         return entrada != null && entrada.leer();
     }
 
-    protected void escribir(String nombre, boolean estado) {
-        salidas.put(nombre, estado);
+    /**
+     * Establece el valor de una salida del componte
+     * @param nombre Nombre de la salida
+     * @param valor Valor al que se establece
+     */
+    protected void escribir(String nombre, boolean valor) {
+        salidas.put(nombre, valor);
     }
 
+    /**
+     * Establece el valor de las salidas del componente. Solo debe llamarse cuando todas las entradas esten definidas o desconectadas.
+     */
     protected abstract void generarSalidas();
 
     @Override

@@ -19,7 +19,7 @@ import java.util.Map;
 public class Tests {
 
     public static void main(String[] args) {
-        test8();
+        test3();
     }
 
     //Ejemplo puerta AND
@@ -118,8 +118,6 @@ public class Tests {
         Componentable and1 = integrado.agregarComponente(AND);
         Componentable or1 = integrado.agregarComponente(OR);
 
-        integrado.agregarComponente(or1);
-        integrado.agregarComponente(and1);
         integrado.agregarConexion(or1, "y1", and1, "x1");
 
         Map<String, Pin> entradas = new HashMap<>();
@@ -128,7 +126,7 @@ public class Tests {
         entradas.put("x2", new Pin(and1, "x2"));
         salidas.put("y1", new Pin(or1, "y1"));
         salidas.put("y2", new Pin(and1, "y1"));
-        Componentable ic1 = maqueta.agregarCircuitoIntegrado(entradas, salidas, integrado);
+        Componentable ic1 = maqueta.agregarIC(entradas, salidas, integrado);
 
         maqueta.agregarConexion(btn1, "y1", and2, "x1");
         maqueta.agregarConexion(btn1, "y1", and2, "x2");
