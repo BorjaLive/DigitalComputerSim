@@ -1,14 +1,12 @@
 package com.b0ve.simuladores.sucutucuengine;
 
-import com.b0ve.simuladores.sucutucuengine.componentes.especiales.CeldaFPGA;
-import com.b0ve.simuladores.sucutucuengine.componentes.especiales.CircuitoIntegrado;
+import com.b0ve.simuladores.sucutucuengine.componentes.especiales.*;
 import com.b0ve.simuladores.sucutucuengine.componentes.puertas.*;
-import com.b0ve.simuladores.sucutucuengine.componentes.secuenciales.FlipFlopD;
-import com.b0ve.simuladores.sucutucuengine.componentes.secuenciales.FlipFlopJK;
-import com.b0ve.simuladores.sucutucuengine.componentes.secuenciales.FlipFlopRS;
+import com.b0ve.simuladores.sucutucuengine.componentes.secuenciales.*;
 import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.*;
 import java.util.Map;
 
+@Deprecated
 public class ComponenteFactory {
     private static long contador = 0;
     
