@@ -44,7 +44,7 @@ public class BCD7Segmentos extends Componente {
         boolean[] salidas = estados[sal];
         
         for (int i = 0; i < salidas.length; i++)
-            escribir(this.nombreSalidas[i], salidas[i]);
+            escribir(this.nombreSalidas.get(i), salidas[i]);
     }
     
 }

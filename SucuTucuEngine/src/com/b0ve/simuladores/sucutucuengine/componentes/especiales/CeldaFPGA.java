@@ -18,8 +18,8 @@ public class CeldaFPGA extends Componente{
         while (i < tabla.length && !encontrado) {
             int j = 0;
             boolean encaja = true;
-            while (j < nombreEntradas.length && encaja) {
-                if (tabla[i][j] != leer(nombreEntradas[j])) {
+            while (j < nombreEntradas.size() && encaja) {
+                if (tabla[i][j] != leer(nombreEntradas.get(j))) {
                     encaja = false;
                 } else {
                     j++;
@@ -32,8 +32,8 @@ public class CeldaFPGA extends Componente{
             }
         }
         if (encontrado) {
-            for (int j = 0; j < nombreSalidas.length; j++) {
-                escribir(nombreSalidas[j], tabla[i][nombreEntradas.length+j]);
+            for (int j = 0; j < nombreSalidas.size(); j++) {
+                escribir(nombreSalidas.get(j), tabla[i][nombreEntradas.size()+j]);
             }
         }
     }

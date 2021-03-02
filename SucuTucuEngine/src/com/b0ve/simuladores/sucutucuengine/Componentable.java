@@ -4,6 +4,14 @@ public interface Componentable {
 
     public long getId();
 
+    public void addEntrada(String entrada);
+
+    public void removeEntrada(String entrada);
+
+    public void addSalida(String salida);
+
+    public void removeSalida(String salida);
+
     public Pin getEntrada(String entrada);
 
     public Boolean getSalida(String salida);

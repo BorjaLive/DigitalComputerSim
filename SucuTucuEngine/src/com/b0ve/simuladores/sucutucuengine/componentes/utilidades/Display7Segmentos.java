@@ -47,7 +47,7 @@ public class Display7Segmentos extends Componente {
     @Override
     protected void generarSalidas() {
         for (int i = 0; i < 7; i++)
-            estado[i] = leer(this.nombreEntradas[i]);
+            estado[i] = leer(this.nombreEntradas.get(i));
     }
     
 }

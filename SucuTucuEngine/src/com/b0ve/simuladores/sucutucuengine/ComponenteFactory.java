@@ -3,6 +3,9 @@ package com.b0ve.simuladores.sucutucuengine;
 import com.b0ve.simuladores.sucutucuengine.componentes.especiales.CeldaFPGA;
 import com.b0ve.simuladores.sucutucuengine.componentes.especiales.CircuitoIntegrado;
 import com.b0ve.simuladores.sucutucuengine.componentes.puertas.*;
+import com.b0ve.simuladores.sucutucuengine.componentes.secuenciales.FlipFlopD;
+import com.b0ve.simuladores.sucutucuengine.componentes.secuenciales.FlipFlopJK;
+import com.b0ve.simuladores.sucutucuengine.componentes.secuenciales.FlipFlopRS;
 import com.b0ve.simuladores.sucutucuengine.componentes.utilidades.*;
 import java.util.Map;
 
@@ -17,6 +20,9 @@ public class ComponenteFactory {
         NAND,
         NOR,
         XNOR,
+        FLIPFLOP_RS,
+        FLIPFLOP_JK,
+        FLIPFLOP_D,
         INTERRUPTOR,
         LED,
         BCD_7SEGMENTOS,
@@ -44,6 +50,9 @@ public class ComponenteFactory {
             case XNOR: return new PuertaXNOR(id);
             case INTERRUPTOR: return new Interruptor(id);
             case LED: return new Led(id);
+            case FLIPFLOP_RS: return new FlipFlopRS(id);
+            case FLIPFLOP_JK: return new FlipFlopJK(id);
+            case FLIPFLOP_D: return new FlipFlopD(id);
             case BCD_7SEGMENTOS: return new BCD7Segmentos(id);
             case DISPLAY_7SEGMENTOS: return new Display7Segmentos(id);
             case DISPLAY_BINARIO_X4: return new DisplayBinariox4(id);
