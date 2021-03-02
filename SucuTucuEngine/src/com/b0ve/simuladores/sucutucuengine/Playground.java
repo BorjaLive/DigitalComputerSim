@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Playground {
-    public enum Componentes {
+    public static enum Componentes {
         AND,
         OR,
         NOT,
@@ -81,14 +81,14 @@ public class Playground {
         return componente;
     }
     
-    public Componentable crearCircuitoIntegrado(Map<String, Pin> entradas, Map<String, Pin> salidas, Playground circuito){
+    public Componentable agregarCircuitoIntegrado(Map<String, Pin> entradas, Map<String, Pin> salidas, Playground circuito){
         long id = contador++;
         Componentable componente = new CircuitoIntegrado(id, entradas, salidas, circuito);
         agregarComponente(componente);
         return componente;
     }
     
-    public Componentable crearCeldaFPGA(String[] entradas, String[] salidas, boolean[][] tabla){
+    public Componentable agregarCeldaFPGA(String[] entradas, String[] salidas, boolean[][] tabla){
         long id = contador++;
         Componentable componente = new CeldaFPGA(id, entradas, salidas, tabla);
         agregarComponente(componente);
